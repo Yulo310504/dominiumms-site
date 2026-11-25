@@ -1,6 +1,6 @@
 
 document.documentElement.classList.add('js');
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}),{threshold:.15});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.rv,#tl').forEach(el=>io.observe(el));
 const cu=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,to=+el.dataset.to;let t0=null;const st=t=>{if(!t0)t0=t;const p=Math.min((t-t0)/1600,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(st)};requestAnimationFrame(st);cu.unobserve(el)}),{threshold:.5});
 document.querySelectorAll('.cu').forEach(el=>cu.observe(el));
@@ -14,7 +14,7 @@ simt.textContent=m==='var'?'Sem garantia, a arrecadação oscila conforme a inad
 document.querySelectorAll('.tg button').forEach(x=>x.classList.toggle('on',x.dataset.m===m))}
 document.querySelectorAll('.tg button').forEach(b=>b.addEventListener('click',()=>mode(b.dataset.m)));
 bs.forEach(b=>b.style.height='0%');ln.style.bottom='calc(92% + 10px - 2px)';
-new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){mode('var');setTimeout(()=>mode('fix'),1800);o.disconnect()}),{threshold:.4}).observe(bars);
+new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){mode('var');setTimeout(()=>mode('fix'),1800);o.disconnect()}}),{threshold:.4}).observe(bars);
 }
 document.querySelectorAll('[data-tabs]').forEach(w=>{const bs=w.querySelectorAll('button'),items=document.querySelectorAll(w.dataset.tabs);
 bs.forEach(b=>b.addEventListener('click',()=>{bs.forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;items.forEach(i=>i.classList.toggle('hid',f!=='all'&&!(i.dataset.f||'').split(' ').includes(f)))}))});
